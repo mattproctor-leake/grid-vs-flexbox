@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Challenge 1</title>
+		<style>
+            /*  Second option using Flexbox
+            
+            This option allows for less lines of code, but I find it more complex
+            when wanting to control both columns and rows.
+
+            Pros:
+            -Ability to make flexible boxes with little code, taking up the entire row. 
+            -Complete focus on content flow
+            -Altering order of elements inside layout without affecting markup 
+            and document structure (using either order property or flex-flow).
+            -Excellent browser support
+
+            Cons:
+            One dimensional approach
+            Possible performance issues upon page load
+            */
+
+
+			p { 
+                font-weight: bold; 
+                }
+
+        
+            .flex-container {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 5px;
+                }
+
+            .flex-container > * {
+                margin: 5px;
+                flex: 1 1 175px;
+                background-color: lightgrey;
+                border: solid grey 1px;
+                padding: 10px;
+                text-align: center;
+            }    
+
+            @media only screen and (max-width: 900px) {
+                .flex-container > * {
+                flex: 1 1 260px;
+                height: 150px;  
+            } 
+
+            .item1 { order: 1;} 
+            .item3 { order: 2;}
+            .item2 { order: 3;}
+        }   
+
+            @media only screen and (max-width: 600px) {
+            .item1 { order: 1;} 
+            .item3 { order: 3;}
+            .item2 { order: 2;}
+
+            .flex-container > * {
+                height: 200px;
+            }
+        }
+        @media only screen and (max-width: 400px) {
+            .flex-container > * {
+                height: 250px;
+            }
+        }
+
+		</style>
+	</head>
+	<body>
+        <div class="flex-container">
+		<div class="item1"><h4>Panel 1:</h4><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
+        <div class="item2"><h4>Panel 2:</h4><p> Cras dictum tristique magna, ultrices faucibus neque tempor a. Ut pulvinar eu ex in condimentum. Vivamus mollis nisi eu cursus hendrerit. Sed eget erat sagittis, luctus turpis eu, pharetra justo. Vestibulum non tellus ipsum. Curabitur facilisis purus sapien, eget ullamcorper velit interdum quis.</p></div>
+        <div class="item3"><h4>Panel 3:</h4><p> Duis dapibus justo non sem aliquet ornare.</p></div>
+    </div>
+    </body>
+</html>

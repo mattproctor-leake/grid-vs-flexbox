@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Challenge 1</title>
+		<style>
+
+            /*  First option using CSS Grid
+            
+            This option takes up more lines of code, but I find it easier and more
+            intuitive in terms of adjusting for different media devices. Once the grid
+            areas are set the user can reference them by word and easily adjust the design.
+
+            Pros:
+            -Ability to work on rows and columns simultaneously. 
+            -Complete focus on layout.
+            -Grid Developer tool available (just Firefox for now).
+            -Little impact on page speed.
+
+            Cons:
+            Not supported by IE 9 or below.
+            */
+
+			p { 
+                font-weight: bold; 
+                }
+
+            .container {
+                display: grid;
+                grid-template-columns: repeat( auto-fit, minmax(250px, 1fr));
+                grid-template-areas: 
+                    "Panel1 Panel2 Panel3";
+                grid-gap: 5px;
+                }
+
+            .container > * {
+                background-color: lightgrey;
+                border: solid grey 1px;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .item1 {
+                grid-area: Panel1; 
+            }
+
+            .item2 {
+                grid-area: Panel2;
+            }
+
+            .item3 {
+                grid-area: Panel3;
+            }
+
+            @media only screen and (max-width: 900px) {
+                .container {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-auto-rows: 1fr;
+                    grid-template-areas: 
+                    "Panel1 Panel3"
+                    "Panel2 Panel2";
+                    grid-gap: 5px;
+                }
+            }
+
+            @media only screen and (max-width: 600px) {
+                .container {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-auto-rows: 1fr;
+                    grid-template-areas: 
+                    "Panel1"
+                    "Panel2"
+                    "Panel3";
+                    grid-gap: 5px;
+                }
+            }
+
+		</style>
+	</head>
+	<body>
+        <div class="container">
+		<div class="item1"><h4>Panel 1:</h4><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
+		<div class="item2"><h4>Panel 2:</h4><p> Cras dictum tristique magna, ultrices faucibus neque tempor a. Ut pulvinar eu ex in condimentum. Vivamus mollis nisi eu cursus hendrerit. Sed eget erat sagittis, luctus turpis eu, pharetra justo. Vestibulum non tellus ipsum. Curabitur facilisis purus sapien, eget ullamcorper velit interdum quis.</p></div>
+		<div class="item3"><h4>Panel 3:</h4><p> Duis dapibus justo non sem aliquet ornare.</p></div>
+    </div>
+    </body>
+</html>
